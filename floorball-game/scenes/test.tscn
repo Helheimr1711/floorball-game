@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://e17m81ocpy4b"]
+
+[ext_resource type="Script" uid="uid://bxae0pvauy7f" path="res://floorball-game/scripts/test_body.gd" id="1_errlg"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_errlg")
