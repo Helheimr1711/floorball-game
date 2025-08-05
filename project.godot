@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="floorball game"
-run/main_scene="res://floorball-game/scenes/test.tscn"
+run/main_scene="res://floorball-game/scenes/player.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://floorball-game/icon.svg"
 

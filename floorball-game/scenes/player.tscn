@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://e17m81ocpy4b"]
+
+[ext_resource type="Script" uid="uid://bxae0pvauy7f" path="res://floorball-game/scripts/player.gd" id="1_in867"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_in867"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0lgfj"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_in867")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_in867")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_0lgfj")
