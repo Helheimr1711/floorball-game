@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var SPEED = 5.0
+
 var is_on_ball: bool = true
 var is_ball_on_ground: bool = true
 
@@ -86,6 +88,16 @@ func _process(delta: float) -> void:
 	var left_stick_input = snapped(Input.get_vector("left_stick_left", "left_stick_right", "left_stick_up", "left_stick_down"), Vector2(0.01, 0.01))
 	var right_stick_input = snapped(Input.get_vector("right_stick_left", "right_stick_right", "right_stick_up", "right_stick_down"), Vector2(0.01, 0.01))
 	var sprinting_input = snapped(Input.get_action_strength("sprinting"), 0.01)
+
+	var direction = (transform.basis * Vector3(left_stick_input.x, 0.0, left_stick_input.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, SPEED)
+		velocity.z = move_toward(velocity.z, 0.0, SPEED)
+
+	move_and_slide()
 
 	# Slapshot
 	slapshot_power = power_release("slapshot", slapshot_input, slapshot_power)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgakn4efnsdbr"]
+
+[ext_resource type="PackedScene" uid="uid://e17m81ocpy4b" path="res://floorball-game/scenes/player.tscn" id="1_eaomm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ekkwg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eaomm"]
+size = Vector3(20, 0.37, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eaomm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekkwg"]
+
+[node name="test_world" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 0.375, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_ekkwg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.821707, 0.569911, 0, -0.569911, 0.821707, 0, 6.79729, 14.661)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.705711, 0.7085, 0, -0.7085, -0.705711, 0, 17.2782, -11.3402)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_eaomm")
+
+[node name="player" parent="." instance=ExtResource("1_eaomm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13545, 0, 6.4758)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_eaomm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_ekkwg")
